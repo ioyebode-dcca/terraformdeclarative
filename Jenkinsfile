@@ -6,7 +6,8 @@ pipeline {
                 echo 'Hello World'
                 script {
                     def tfHome = tool name: 'Terraform'
-                    env.PATH = "${tfHome}:${env.PATH}" {
+                    env.PATH = "${tfHome}:${env.PATH}" 
+                    ansiColor('xterm') {
                         sh 'terraform — version'
                     }
                 }
