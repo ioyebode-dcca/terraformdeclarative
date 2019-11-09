@@ -1,13 +1,15 @@
 pipeline {
     agent any
-    tools {
-        Terraform 'Terraform 0.12.12'
-    }
     stages {
-        stage('Example') {
+        stage(‘Set Terraform path’) {
             steps {
-                sh 'terraform --version'
+                script {
+                    def tfHome = tool name: ‘Terraform’
+                    env.PATH = “${tfHome}:${env.PATH}” {
+                        sh "terraform — version"
+                    }
+                }
             }
-        }
+        } 
     }
 }
