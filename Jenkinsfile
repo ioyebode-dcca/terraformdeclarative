@@ -8,7 +8,7 @@ pipeline {
                     def tfHome = tool name: 'Terraform'
                     env.PATH = "${tfHome}:${env.PATH}" 
                     ansiColor('xterm') {
-                        sh 'terraform — version'
+                        sh 'terraform --version'
                     }
                 }
             }
